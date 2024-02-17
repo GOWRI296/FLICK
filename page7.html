@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Login Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background-color: #333; 
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+        text-align: center;
+        width: 300px; 
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button {
+        width: calc(100% - 22px); 
+        padding: 14px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+        background-color: #555; 
+        color: #fff;
+        font-size: 16px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    button:focus {
+        outline: none;
+    }
+
+    .orange-button {
+        background-color: #ff6600; 
+    }
+
+    .orange-button:hover {
+        background-color: #ff0000; 
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Login</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button class="orange-button">Login</button>
+    <p>Don't have an account? <a href="page8.html">Sign Up</a></p>
+</div>
+</body>
+</html>

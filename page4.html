@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+    font-weight: bold;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    background-color: #777;
+  }
+  
+  input[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #800000;
+  }
+
+  .sci {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    list-style: none;
+  }
+  
+  .sci li a {
+    display: inline-block;
+    margin-left: 10px;
+    background: #222;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .sci li a:hover {
+    background-color: #e51e2a;
+    transform: translateY(-10px);
+  }
+  
+  .sci li a img {
+    filter: invert(1);
+    transform: scale(0.5);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Contact Us</h1>
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="55269aed-80b1-4090-a93f-e144bd8de01b">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <select name="reason" required>
+      <option value="" disabled selected>Select Reason for Contacting</option>
+      <option value="general">General Inquiry</option>
+      <option value="support">Customer Support</option>
+      <option value="sales">Sales</option>
+      <option value="partnerships">Partnerships</option>
+      <option value="feedback">Feedback</option>
+    </select>
+    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<ul class="sci">
+  <li><a href="https://www.facebook.com/gowri.gurujukota"><img src="facebook.png.png"></a></li>
+  <li><a href="https://twitter.com/GGN2003"><img src="twitter.png.png"></a></li>
+  <li><a href="https://www.instagram.com/g.g.n_25/"><img src="instagram.png.png"></a></li>
+</ul>
+</body>
+</html>

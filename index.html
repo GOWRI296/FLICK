@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLICK</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <section>
+      <div class="search">
+      <div cass="icon"></div>
+      <div class="input">
+        <input type="text" placeholder="search" id="mysearch">
+      </div>
+      <span class=" clear" onclick="document.getElementById('mysearch').value=''"></span>
+      </div>
+      
+      <script>
+        const icon=document.querySelector('.icon');
+        const search=document.querySelector('.search');
+        icon.onclick=function(){
+          search.classList.toggle('active')
+        }
+      </script>
+         <script>
+          function getLocation() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+              alert("Geolocation is not supported by this browser.");
+            }
+          }
+          
+          function showPosition(position) {
+            console.log("Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude);
+          }
+          
+          function showError(error) {
+            switch(error.code) {
+              case error.PERMISSION_DENIED:
+                alert("User denied the request for Geolocation.");
+                break;
+              case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+              case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+              case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+            }
+          }
+          
+          // Call the getLocation function when the page loads
+          window.onload = getLocation;
+          </script>
+      
+      
+    
+        <header>
+            <a href="page7.html"><img src="flick.logo2.png" class="logo"></a>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Autocomplete Search</title>
+                <style>
+                    body {
+                        background-color: black;
+                        color: white;
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                    }
+            
+                    .search-container {
+                        position: relative;
+                        width: 300px;
+                        margin: 50px auto;
+                    }
+            
+                    .search-input {
+                        width: calc(100% - 40px); 
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 30px;
+                        background-color: #333;
+                        color: white;
+                        transition: width 0.4s ease-in-out, background-color 0.4s;
+                    }
+            
+                    .search-input:focus {
+                        width: 400px;
+                        background-color: #444;
+                        outline: none;
+                    }
+            
+                    .search-button {
+                        position: absolute;
+                        top: 50%;
+                        right: 10px;
+                        transform: translateY(-50%);
+                        width: 20px;
+                        height: 20px;
+                        fill: red; 
+                        cursor: pointer;
+                        transition: fill 0.4s, right 0.4s; 
+                    }
+            
+                    .search-button:hover {
+                        fill: darkred; 
+                    }
+            
+                    .search-container:focus-within .search-button {
+                        right: calc(10px + 100%);
+                    }
+            
+                    
+                    .autocomplete-items {
+                        position: absolute;
+                        background-color: #444;
+                        color: white;
+                        border: 1px solid #333;
+                        border-top: none;
+                        z-index: 99;
+                        width: calc(100% - 40px); 
+                        border-radius: 0 0 30px 30px;
+                    }
+            
+                    .autocomplete-item {
+                        padding: 10px;
+                        cursor: pointer;
+                    }
+            
+                    .autocomplete-item:hover {
+                        background-color: #555;
+                    }
+                </style>
+            </head>
+            <body>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" id="myInput" placeholder="Search...">
+                <svg class="search-button" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="red" d="M23.707,22.293l-6.4-6.4C18.188,14.368,19,12.794,19,11c0-4.963-4.037-9-9-9s-9,4.037-9,9s4.037,9,9,9 c1.794,0,3.368-0.812,4.393-2.093l6.4,6.4c0.293,0.293,0.768,0.293,1.061,0C24.1,23.061,24.1,22.586,23.707,22.293z M2,11 c0-4.411,3.589-8,8-8s8,3.589,8,8s-3.589,8-8,8S2,15.411,2,11z"/>
+                </svg>
+                <div class="autocomplete-items" id="autocomplete-items"></div>
+            </div>
+            
+            <script>
+                var suggestions = ["Movies", "Animal", "Baahubali", "About Us", "What's New", "Upload"];
+            
+                var input = document.getElementById("myInput");
+                var suggestionsContainer = document.getElementById("autocomplete-items");
+            
+                function showSuggestions() {
+                    var userInput = input.value.toLowerCase();
+                    var matchedSuggestions = suggestions.filter(function(suggestion) {
+                        return suggestion.toLowerCase().startsWith(userInput);
+                    });
+            
+                    suggestionsContainer.innerHTML = "";
+                    matchedSuggestions.forEach(function(suggestion) {
+                        var suggestionElement = document.createElement("div");
+                        suggestionElement.classList.add("autocomplete-item");
+                        suggestionElement.textContent = suggestion;
+                        suggestionElement.addEventListener("click", function() {
+                            input.value = suggestion;
+                            suggestionsContainer.innerHTML = "";
+                        });
+                        suggestionsContainer.appendChild(suggestionElement);
+                    });
+            
+                    if (matchedSuggestions.length === 0) {
+                        suggestionsContainer.innerHTML = "<div class='autocomplete-item'>No suggestions</div>";
+                    }
+            
+                    suggestionsContainer.style.display = "block";
+                }
+            
+                document.addEventListener("click", function(event) {
+                    if (event.target !== input && event.target !== suggestionsContainer) {
+                        suggestionsContainer.style.display = "none";
+                    }
+                });
+            
+                input.addEventListener("input", function() {
+                    showSuggestions();
+                });
+            </script>
+            
+            </body>
+            </html>
+                      
+            <div class="toggle" onclick="toggleMenu()"></div>
+            <u1 class="navigation">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="page5.html">ABOUT</a></li>
+                <li><a href="page2.html">What's new</a></li>
+                <li><a href="page4.html">CONTACT</a></li>
+
+
+
+            </u1>
+        </header>
+        
+        <div class="content">
+            <div class="textBox">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2> FEEL THEM </h2>
+                <p>"Film is not just a form of entertainment; it is an empathetic bridge between the artist and the audience."<br>
+                     - Quentin Tarantino
+                     <br>
+                     <br>
+                    <a href="page3.html">Get Started !</a>
+                </p>
+            </div>
+            <br>
+            <br>
+         
+            
+           
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #fff;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 300px;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+    slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+    coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+    <swiper-slide>
+      <img src="interstellar.png.png" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="animal.png.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="oppenheimer.jpg.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="baahubali.png.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="dune.jpg.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="kalki.jpg1.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="radhe shyam.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="sholay.jpg" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="dil.jpg" />
+    </swiper-slide>
+  </swiper-container>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+</body>
+
+</html>
+
+            <ul class="sci">
+                <li><a href="https://www.facebook.com/gowri.gurujukota"><img src="facebook.png.png"></a></li>
+                <li><a href="https://twitter.com/GGN2003"><img src="twitter.png.png"></a></li>
+                <li><a href="https://www.instagram.com/g.g.n_25/"><img src="instagram.png.png"></a></li>
+
+            </ul>
+        </div>
+    </section>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper=new Swiper('.swiper-container',{
+            effect:'coverflow',
+            grabCursor:true,
+            centeredSides:true,
+            slidesPerView:'auto',
+            coverflowEffect:{
+                rotate:0,
+                stretch:0,
+                depth:200,
+                modifier:1,
+                slideShadows:true,
+            },
+            pagination:{
+                el:'.swiper-pagination',
+            },
+            loop:true,
+        });
+
+
+
+        function toggleMenu(){
+            const menuToggle=document.querySelector('.toggle');
+            menuToggle.classList.toggle('active')
+        }
+    </script>
+    </head>
+    <body>
+      
+    
+   
+
+
+</body>
+</html>

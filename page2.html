@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>What's New</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      background-color: #333;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+
+    .logo-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .logo-btn a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .logo-btn:hover {
+      background-color: darkred;
+    }
+
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 300px;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+
+    .search-container {
+      position: relative;
+      width: 300px;
+      margin: 50px auto;
+    }
+
+    .search-input {
+      width: calc(100% - 40px);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      background-color: #333;
+      color: white;
+      transition: width 0.4s ease-in-out, background-color 0.4s;
+    }
+
+    .search-input:focus {
+      width: 400px;
+      background-color: #444;
+      outline: none;
+    }
+
+    .search-button {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      fill: red;
+      cursor: pointer;
+      transition: fill 0.4s, right 0.4s;
+    }
+
+    .search-button:hover {
+      fill: darkred;
+    }
+
+    .search-container:focus-within .search-button {
+      right: calc(10px + 100%);
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">Home</a>
+  <a href="page5.html">About</a>
+  <a href="#">Services</a>
+  <a href="page4.html">Contact</a>
+</div>
+
+<div id="main">
+  <button class="logo-btn"><a href="index.html"><span style="color: white; font-weight: bold;">FLICK</span></a></button>
+  <span style="font-size:30px;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
+</div>
+
+<swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+                  slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0"
+                  coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+  <swiper-slide>
+    <img src="ee.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="fast and fu.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="shaw.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="batman.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="bvs.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="radhe shyam.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="dp3.jpg.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="rrr.jpg" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="fightclub.jpg" />
+  </swiper-slide>
+</swiper-container>
+
+<div class="search-container">
+  <input type="text" class="search-input" placeholder="Search...">
+  <svg class="search-button" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="red"
+          d="M23.707,22.293l-6.4-6.4C18.188,14.368,19,12.794,19,11c0-4.963-4.037-9-9-9s-9,4.037-9,9s4.037,9,9,9 c1.794,0,3.368-0.812,4.393-2.093l6.4,6.4c0.293,0.293,0.768,0.293,1.061,0C24.1,23.061,24.1,22.586,23.707,22.293z M2,11 c0-4.411,3.589-8,8-8s8,3.589,8,8s-3.589,8-8,8S2,15.411,2,11z"/>
+  </svg>
+</div>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+</body>
+
+</html>

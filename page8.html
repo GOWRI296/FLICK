@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Sign Up Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000; 
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 400px;
+        margin: 50px auto;
+        background-color: #333; 
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+        padding: 40px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #fff; 
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    button {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+        background-color: #555; 
+        color: #fff;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    button:focus {
+        outline: none;
+    }
+
+    .orange-button {
+        background-color: #ff6600; 
+    }
+
+    .orange-button:hover {
+        background-color: #ffcc66; 
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .link a {
+        color: #aaa; 
+        text-decoration: none;
+    }
+
+    .link a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Sign Up</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="ed21863b-1ab1-43e3-9ed1-88fb4c5c3a9a">
+
+
+        
+        <input type="text" name="full_name" placeholder="Full Name">
+        <input type="email" name="email_address" placeholder="Email Address">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="confirm_password" placeholder="Confirm Password">
+        <button class="orange-button"><a href="https://app.deform.cc/form/70bca24e-6faa-4f97-a43c-e2ada68a04d3" style="color: white; text-decoration: none;">Sign Up</a></button>
+    </form>
+    <div class="link">
+        <p>Already have an account? <a href="#">Log In</a></p>
+    </div>
+</div>
+</body>
+</html>
